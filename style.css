@@ -26,5 +26,32 @@
 }
 /*end styling main header*/
 /*.....................................*/
+.addCon {
+    width: 400px;
+    margin: 40px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border:1.5px solid #999;
+    border-radius:10px ;
+}
+.addCon *{
+    margin: 5px 0px 0px 0px;
+    padding: 7px;
+}
+.addCon h2{
+    background-color: #707070;
+    color: white;
+}
+.addCon input,button{
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+.addCon button{
+    background-color: #707070;
+    color: white;
+    font-size: 1.2em;
+}
 
 
