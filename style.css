@@ -26,11 +26,12 @@
 }
 /*end styling main header*/
 /*.....................................*/
+/*start styling add form*/
 .addCon {
     width: 400px;
     margin: 40px auto;
     padding: 10px;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     border:1.5px solid #999;
@@ -54,4 +55,21 @@
     font-size: 1.2em;
 }
 
-
+/*end styling main add form*/
+/*.............................*/
+/*start styling main product continer*/
+.product-container{
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #999;
+}
+.products{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+/*end styling main add form product continer*/
+/*...................................*/
