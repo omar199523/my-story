@@ -5,29 +5,37 @@ function get(id){
 function getValue(id){
     return document.getElementById(id).value;
 }
-function filterProduct(data,inputValue,by){
-    return data.filter(x=>{
-        x.by.indextOf(/inputValue/i)!==-1;
-    })
+function filterProductByName(data,inputValue){
+    return data.filter((x)=>{if(x.name.search(inputValue) !== -1){return x}})
+}
+function filterProductByPrice(data,inputValue){
+    return data.filter((x)=>{if(x.price <= inputValue){return x}})
+}
+function filterProductByCategory(data,inputValue){
+    return data.filter((x)=>{if(x.category <= inputValue){return x}})
 }
 
 function creatOneProduct(data){
     let innerElement = [
-        createAndAddElement({element:"div",innerElement:"",attribute:{class:"productImg"}}),
-        createAndAddElement({element:"h3",innerElement:`${data.name}`,attribute:{className:"productName"}}),
-        createAndAddElement({element:"h3",innerElement:`${data.price}`,attribute:{className:"productPrice"}}),
-        createAndAddElement({element:"h3",innerElement:`${data.category}`,attribute:{className:"productCategory"}}),
-        createAndAddElement({element:"p",innerElement:`${data.detil}`,attribute:{className:"productDetil"}}),
-        createAndAddElement({element:"button",innerElement:"Add in myCar",attribute:{className:"productbutton"}}),
+        createAndAddElement({element:"div",innerElement:[createAndAddElement({element:"img",innerElement:"",attribute:{src:`${data.imageLink}`,class:"imgProduct"}})],attribute:{class:"productImg"}}),
+        createAndAddElement({element:"h3",innerElement:`${data.name}`,attribute:{class:"productName"}}),
+        createAndAddElement({element:"h3",innerElement:`${data.price}`,attribute:{class:"productPrice"}}),
+        createAndAddElement({element:"h3",innerElement:`${data.category}`,attribute:{class:"productCategory"}}),
+        createAndAddElement({element:"p",innerElement:`${data.detil}`,attribute:{class:"productDetil"}}),
+        createAndAddElement({element:"button",innerElement:"Add in myCar",attribute:{class:"productbutton"}}),
     ]
-    return createAndAddElement({element:"div",innerElement:innerElement,attribute:{className:"onnProduct"}});
+    return createAndAddElement({element:"div",innerElement:innerElement,attribute:{class:"oneProduct"}});
 }
 
-function crateProducts(data,continer){
+function createProducts(data,continer){
     while(continer.firstChild){
         continer.removeChild(continer.lastChild);
     }
     data.forEach(x=>{
-        creatOneProduct(x)
+        continer.append(creatOneProduct(x))
     });
 }
+createProducts(myProduct,get("products"))
+
+console.log(document.getElementsByClassName("oneProduct"))
+
